@@ -64,3 +64,14 @@ procedure.'.
 			               'This is a function that creates a new instance of the smart contract. Each smart contract must have at least one of this type of Function
 (either implicitly or explicitly).'
 ]
+
+{ #category : #definition }
+SmartContractMetamodelGenerator >> defineHierarchy [ 
+
+	super defineHierarchy. 
+	
+	"Est-ce que l'on doit faire apparaitre toutes nos classes ? Si oui besoin d'un container global ?"
+	constructor --|> function.
+	modifier --|> function.
+	event --|> function.
+]
