@@ -3,7 +3,7 @@ Baseline importer for SmartContract meta model definition in moose
 "
 Class {
 	#name : #BaselineOfSmartcontractMM,
-	#superclass : #Object,
+	#superclass : #BaselineOf,
 	#category : #BaselineOfSmartContractMM
 }
 
