@@ -12,4 +12,6 @@ BaselineOfSmartcontractMM >> baseline: spec [
 	<baseline>
 
 	spec
+	
+	package: 'SmartContract-Model-Generator'
 ]
