@@ -75,3 +75,38 @@ SmartContractMetamodelGenerator >> defineHierarchy [
 	modifier --|> function.
 	event --|> function.
 ]
+
+{ #category : #definition }
+SmartContractMetamodelGenerator >> defineProperties [ 
+
+super defineProperties.
+    (smartContract property: #id type: #String)
+       comment: 'The id of the SC'.
+    (smartContract property: #name type: #String)
+       comment: 'The name of the SC'.
+    (variable property: #name type: #String)
+       comment: 'The name of the variable'.
+    (variable property: #type type: #String)
+       comment: 'The type of the variable'.
+    (function property: #name type: #String)
+       comment: 'The name of the function'.
+
+]
+
+{ #category : #definition }
+SmartContractMetamodelGenerator >> defineRelations [
+
+	super defineRelations.
+	((smartContract property: #functions) comment: 'Functions in the SC')
+	<>-* ((function property: #contract) comment:
+			 'The SC that contain this function').
+
+	((smartContract property: #staticProperties) comment:
+		 'Static properties of the smart contract') <>-* variable.
+
+	((variable property: #entryFunctions) comment:
+		 'Functions that use this variable as input') *-* function.
+
+	((variable property: #exitFunction) comment:
+		 'The function that outputs this variable') -* function
+]
